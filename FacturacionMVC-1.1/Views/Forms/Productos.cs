@@ -81,6 +81,20 @@ namespace FacturacionMVC_1._1.Views.Forms
             this.btnEliminarProducto.Enabled = true;
         }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string txtFindCodigoT = txtFindCodigo.Text.Trim();
+            string txtFindDescripcionT = txtFindDescripcion.Text.Trim();
+            dgvProductos.DataSource = productosController.GetProductos(txtFindCodigoT, txtFindDescripcionT);
+        }
+
+        private void txtFindDescripcion_TextChanged(object sender, EventArgs e)
+        {
+            string txtFindDescripcionT = txtFindDescripcion.Text.Trim();
+            string txtFindCodigoT = "";
+            dgvProductos.DataSource = productosController.GetProductos(txtFindCodigoT, txtFindDescripcionT);
+        }
+
 
 
      }

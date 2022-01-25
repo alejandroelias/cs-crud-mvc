@@ -44,6 +44,40 @@ namespace FacturacionMVC_1._1.Controllers
                 return null;
             }
         }
+        public List<Models.ProductosViewModel> GetProductos(string txtFindCodigoT, string txtFindDescripcionT)
+        {
+
+            try
+            {
+                using (Models.DemoEntities dataContext = new Models.DemoEntities())
+                {
+                    var productoList = (from tbl in dataContext.ARTICULOS
+                                        select new Models.ProductosViewModel
+                                        {
+                                            Codigo = tbl.id_articulo,
+                                            Descripcion = tbl.descripcion,
+                                            Existencia = (int)tbl.existencia
+                                        }).AsQueryable();
+
+                    if (!txtFindCodigoT.Equals(""))
+                    {
+                        int txtCodigoFinf = int.Parse(txtFindCodigoT);
+                        productoList = productoList.Where(tbl => tbl.Codigo == txtCodigoFinf);
+                    }
+                    if (!txtFindDescripcionT.Equals(""))
+                    {
+                        productoList = productoList.Where(tbl => tbl.Descripcion.Contains(txtFindDescripcionT));
+                    }
+
+                    return productoList.ToList();
+                }
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
         public bool PostProductos(string descripcionT, int existenciaT)
         {
             try
@@ -101,7 +135,5 @@ namespace FacturacionMVC_1._1.Controllers
                 return false;   
             }
         }
-        //TODO: Busqueda dinamica
-
     }
 }

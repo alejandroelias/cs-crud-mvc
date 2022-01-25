@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Productos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.btnNuevoProducto = new System.Windows.Forms.ToolStripButton();
-            this.btnEliminarProducto = new System.Windows.Forms.ToolStripButton();
-            this.btnActualizarProducto = new System.Windows.Forms.ToolStripButton();
-            this.btnSalir = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.txtFindCodigo = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.txtFindDescripcion = new System.Windows.Forms.ToolStripTextBox();
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
-            this.txtFindCodigo = new System.Windows.Forms.ToolStripTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnNuevoProducto = new System.Windows.Forms.ToolStripButton();
+            this.btnEliminarProducto = new System.Windows.Forms.ToolStripButton();
+            this.btnActualizarProducto = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSalir = new System.Windows.Forms.ToolStripButton();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
-            this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -90,6 +90,61 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Busqueda";
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.txtFindCodigo,
+            this.toolStripSeparator2,
+            this.toolStripLabel2,
+            this.txtFindDescripcion,
+            this.btnBuscar});
+            this.toolStrip2.Location = new System.Drawing.Point(3, 16);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(647, 25);
+            this.toolStrip2.TabIndex = 4;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(46, 22);
+            this.toolStripLabel1.Text = "Codigo";
+            // 
+            // txtFindCodigo
+            // 
+            this.txtFindCodigo.Name = "txtFindCodigo";
+            this.txtFindCodigo.Size = new System.Drawing.Size(100, 25);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(69, 22);
+            this.toolStripLabel2.Text = "Descripcion";
+            // 
+            // txtFindDescripcion
+            // 
+            this.txtFindDescripcion.Name = "txtFindDescripcion";
+            this.txtFindDescripcion.Size = new System.Drawing.Size(100, 25);
+            this.txtFindDescripcion.TextChanged += new System.EventHandler(this.txtFindDescripcion_TextChanged);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(23, 22);
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label2
             // 
@@ -128,44 +183,6 @@
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
-            // 
-            // dgvProductos
-            // 
-            this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvProductos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvProductos.BackgroundColor = System.Drawing.Color.LightSteelBlue;
-            this.dgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvProductos.ColumnHeadersHeight = 35;
-            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvProductos.GridColor = System.Drawing.Color.LightSteelBlue;
-            this.dgvProductos.Location = new System.Drawing.Point(0, 0);
-            this.dgvProductos.MultiSelect = false;
-            this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.LawnGreen;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvProductos.RowHeadersWidth = 50;
-            this.dgvProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductos.Size = new System.Drawing.Size(653, 362);
-            this.dgvProductos.TabIndex = 0;
-            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
-            this.dgvProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellDoubleClick);
-            // 
             // btnNuevoProducto
             // 
             this.btnNuevoProducto.Image = global::FacturacionMVC_1._1.Properties.Resources.add2;
@@ -193,6 +210,11 @@
             this.btnActualizarProducto.Text = "Actualizar";
             this.btnActualizarProducto.Click += new System.EventHandler(this.btnActualizarProducto_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
+            // 
             // btnSalir
             // 
             this.btnSalir.Image = global::FacturacionMVC_1._1.Properties.Resources.log_out;
@@ -202,58 +224,38 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // toolStrip2
+            // dgvProductos
             // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
-            this.txtFindCodigo,
-            this.toolStripSeparator2,
-            this.toolStripLabel2,
-            this.txtFindDescripcion,
-            this.btnBuscar});
-            this.toolStrip2.Location = new System.Drawing.Point(3, 16);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(647, 25);
-            this.toolStrip2.TabIndex = 4;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(46, 22);
-            this.toolStripLabel1.Text = "Codigo";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(69, 22);
-            this.toolStripLabel2.Text = "Descripcion";
-            // 
-            // txtFindDescripcion
-            // 
-            this.txtFindDescripcion.Name = "txtFindDescripcion";
-            this.txtFindDescripcion.Size = new System.Drawing.Size(100, 25);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(23, 22);
-            this.btnBuscar.Text = "toolStripButton1";
-            // 
-            // txtFindCodigo
-            // 
-            this.txtFindCodigo.Name = "txtFindCodigo";
-            this.txtFindCodigo.Size = new System.Drawing.Size(100, 25);
+            this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProductos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvProductos.BackgroundColor = System.Drawing.Color.LightSteelBlue;
+            this.dgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvProductos.ColumnHeadersHeight = 35;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvProductos.GridColor = System.Drawing.Color.LightSteelBlue;
+            this.dgvProductos.Location = new System.Drawing.Point(0, 0);
+            this.dgvProductos.MultiSelect = false;
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LawnGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvProductos.RowHeadersWidth = 50;
+            this.dgvProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProductos.Size = new System.Drawing.Size(653, 362);
+            this.dgvProductos.TabIndex = 0;
+            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
+            this.dgvProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellDoubleClick);
             // 
             // Productos
             // 
@@ -273,11 +275,11 @@
             this.splitContainer1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
 
         }

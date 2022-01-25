@@ -11,5 +11,9 @@ namespace FacturacionMVC_1._1.Models
         public int Codigo { get; set; }
         public string Descripcion { get; set; }
         public int Existencia { get; set; }
+        public string CodigoDescripcion
+        {
+            get { return Codigo.ToString() + "-" + Descripcion; }
+        }
     }
 }
