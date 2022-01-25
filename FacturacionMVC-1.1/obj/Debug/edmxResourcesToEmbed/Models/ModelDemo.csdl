@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DemoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ARTICULOS">
+    <Key>
+      <PropertyRef Name="id_articulo" />
+    </Key>
+    <Property Name="id_articulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="existencia" Type="Int32" />
+    <NavigationProperty Name="FACTURAS_DETALLE" Relationship="Self.FK__FACTURAS___fk_id__1B0907CE" FromRole="ARTICULOS" ToRole="FACTURAS_DETALLE" />
+  </EntityType>
+  <EntityType Name="CLIENTES">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+    </Key>
+    <Property Name="id_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_id_depart" Type="Int32" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="condicion_pago" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="dias_credito" Type="Int32" />
+    <Property Name="num_registro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="num_nit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="giro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DEPARTAMENTOS" Relationship="Self.FK__CLIENTES__fk_id___145C0A3F" FromRole="CLIENTES" ToRole="DEPARTAMENTOS" />
+    <NavigationProperty Name="FACTURAS" Relationship="Self.FK__FACTURAS__fk_id___173876EA" FromRole="CLIENTES" ToRole="FACTURAS" />
+  </EntityType>
+  <EntityType Name="DEPARTAMENTOS">
+    <Key>
+      <PropertyRef Name="id_depart" />
+    </Key>
+    <Property Name="id_depart" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CLIENTES" Relationship="Self.FK__CLIENTES__fk_id___145C0A3F" FromRole="DEPARTAMENTOS" ToRole="CLIENTES" />
+  </EntityType>
+  <EntityType Name="FACTURAS">
+    <Key>
+      <PropertyRef Name="id_factura" />
+    </Key>
+    <Property Name="id_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_id_cliente" Type="Int32" />
+    <Property Name="clientes_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="clientes_direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="clientes_departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="clientes_registro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="clientes_num_nit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="clientes_giro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="subtotal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="iva" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="total" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="total_letras" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CLIENTES" Relationship="Self.FK__FACTURAS__fk_id___173876EA" FromRole="FACTURAS" ToRole="CLIENTES" />
+    <NavigationProperty Name="FACTURAS_DETALLE" Relationship="Self.FK__FACTURAS___fk_id__1A14E395" FromRole="FACTURAS" ToRole="FACTURAS_DETALLE" />
+  </EntityType>
+  <EntityType Name="FACTURAS_DETALLE">
+    <Key>
+      <PropertyRef Name="id_factura_detalle" />
+    </Key>
+    <Property Name="id_factura_detalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_id_factura" Type="Int32" />
+    <Property Name="fk_id_articulo" Type="Int32" />
+    <Property Name="articulos_descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cantidad" Type="Int32" />
+    <Property Name="precio_unitario" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="subtotal" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="ARTICULOS" Relationship="Self.FK__FACTURAS___fk_id__1B0907CE" FromRole="FACTURAS_DETALLE" ToRole="ARTICULOS" />
+    <NavigationProperty Name="FACTURAS" Relationship="Self.FK__FACTURAS___fk_id__1A14E395" FromRole="FACTURAS_DETALLE" ToRole="FACTURAS" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="contrasena" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="rol" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="nivel_acceso" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__FACTURAS___fk_id__1B0907CE">
+    <End Role="ARTICULOS" Type="Self.ARTICULOS" Multiplicity="0..1" />
+    <End Role="FACTURAS_DETALLE" Type="Self.FACTURAS_DETALLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ARTICULOS">
+        <PropertyRef Name="id_articulo" />
+      </Principal>
+      <Dependent Role="FACTURAS_DETALLE">
+        <PropertyRef Name="fk_id_articulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CLIENTES__fk_id___145C0A3F">
+    <End Role="DEPARTAMENTOS" Type="Self.DEPARTAMENTOS" Multiplicity="0..1" />
+    <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTAMENTOS">
+        <PropertyRef Name="id_depart" />
+      </Principal>
+      <Dependent Role="CLIENTES">
+        <PropertyRef Name="fk_id_depart" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FACTURAS__fk_id___173876EA">
+    <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="0..1" />
+    <End Role="FACTURAS" Type="Self.FACTURAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTES">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="FACTURAS">
+        <PropertyRef Name="fk_id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FACTURAS___fk_id__1A14E395">
+    <End Role="FACTURAS" Type="Self.FACTURAS" Multiplicity="0..1" />
+    <End Role="FACTURAS_DETALLE" Type="Self.FACTURAS_DETALLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FACTURAS">
+        <PropertyRef Name="id_factura" />
+      </Principal>
+      <Dependent Role="FACTURAS_DETALLE">
+        <PropertyRef Name="fk_id_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DemoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" />
+    <EntitySet Name="CLIENTES" EntityType="Self.CLIENTES" />
+    <EntitySet Name="DEPARTAMENTOS" EntityType="Self.DEPARTAMENTOS" />
+    <EntitySet Name="FACTURAS" EntityType="Self.FACTURAS" />
+    <EntitySet Name="FACTURAS_DETALLE" EntityType="Self.FACTURAS_DETALLE" />
+    <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" />
+    <AssociationSet Name="FK__FACTURAS___fk_id__1B0907CE" Association="Self.FK__FACTURAS___fk_id__1B0907CE">
+      <End Role="ARTICULOS" EntitySet="ARTICULOS" />
+      <End Role="FACTURAS_DETALLE" EntitySet="FACTURAS_DETALLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CLIENTES__fk_id___145C0A3F" Association="Self.FK__CLIENTES__fk_id___145C0A3F">
+      <End Role="DEPARTAMENTOS" EntitySet="DEPARTAMENTOS" />
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FACTURAS__fk_id___173876EA" Association="Self.FK__FACTURAS__fk_id___173876EA">
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+      <End Role="FACTURAS" EntitySet="FACTURAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FACTURAS___fk_id__1A14E395" Association="Self.FK__FACTURAS___fk_id__1A14E395">
+      <End Role="FACTURAS" EntitySet="FACTURAS" />
+      <End Role="FACTURAS_DETALLE" EntitySet="FACTURAS_DETALLE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

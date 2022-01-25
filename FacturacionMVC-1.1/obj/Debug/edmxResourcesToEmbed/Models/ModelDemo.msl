@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DemoModelStoreContainer" CdmEntityContainer="DemoEntities">
+    <EntitySetMapping Name="ARTICULOS">
+      <EntityTypeMapping TypeName="DemoModel.ARTICULOS">
+        <MappingFragment StoreEntitySet="ARTICULOS">
+          <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="existencia" ColumnName="existencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLIENTES">
+      <EntityTypeMapping TypeName="DemoModel.CLIENTES">
+        <MappingFragment StoreEntitySet="CLIENTES">
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="fk_id_depart" ColumnName="fk_id_depart" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="condicion_pago" ColumnName="condicion_pago" />
+          <ScalarProperty Name="dias_credito" ColumnName="dias_credito" />
+          <ScalarProperty Name="num_registro" ColumnName="num_registro" />
+          <ScalarProperty Name="num_nit" ColumnName="num_nit" />
+          <ScalarProperty Name="giro" ColumnName="giro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPARTAMENTOS">
+      <EntityTypeMapping TypeName="DemoModel.DEPARTAMENTOS">
+        <MappingFragment StoreEntitySet="DEPARTAMENTOS">
+          <ScalarProperty Name="id_depart" ColumnName="id_depart" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FACTURAS">
+      <EntityTypeMapping TypeName="DemoModel.FACTURAS">
+        <MappingFragment StoreEntitySet="FACTURAS">
+          <ScalarProperty Name="id_factura" ColumnName="id_factura" />
+          <ScalarProperty Name="fk_id_cliente" ColumnName="fk_id_cliente" />
+          <ScalarProperty Name="clientes_nombre" ColumnName="clientes_nombre" />
+          <ScalarProperty Name="clientes_direccion" ColumnName="clientes_direccion" />
+          <ScalarProperty Name="clientes_departamento" ColumnName="clientes_departamento" />
+          <ScalarProperty Name="clientes_registro" ColumnName="clientes_registro" />
+          <ScalarProperty Name="clientes_num_nit" ColumnName="clientes_num_nit" />
+          <ScalarProperty Name="clientes_giro" ColumnName="clientes_giro" />
+          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+          <ScalarProperty Name="iva" ColumnName="iva" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="total_letras" ColumnName="total_letras" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FACTURAS_DETALLE">
+      <EntityTypeMapping TypeName="DemoModel.FACTURAS_DETALLE">
+        <MappingFragment StoreEntitySet="FACTURAS_DETALLE">
+          <ScalarProperty Name="id_factura_detalle" ColumnName="id_factura_detalle" />
+          <ScalarProperty Name="fk_id_factura" ColumnName="fk_id_factura" />
+          <ScalarProperty Name="fk_id_articulo" ColumnName="fk_id_articulo" />
+          <ScalarProperty Name="articulos_descripcion" ColumnName="articulos_descripcion" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
+          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIOS">
+      <EntityTypeMapping TypeName="DemoModel.USUARIOS">
+        <MappingFragment StoreEntitySet="USUARIOS">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+          <ScalarProperty Name="nivel_acceso" ColumnName="nivel_acceso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
